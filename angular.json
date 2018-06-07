@@ -11,24 +11,24 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/browser",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "tsConfig": "src/tsconfig.app.json",
-            "polyfills": "src/polyfills.ts",
+            "index": "src/client/index.html",
+            "main": "src/client/main.ts",
+            "tsConfig": "src/client/tsconfig.app.json",
+            "polyfills": "src/client/polyfills.ts",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets",
+                "input": "src/client/assets",
                 "output": "/assets"
               },
               {
                 "glob": "favicon.ico",
-                "input": "src",
+                "input": "src/client",
                 "output": "/"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/client/styles.css"
             ],
             "scripts": []
           },
@@ -72,23 +72,23 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
+            "main": "src/client/test.ts",
             "karmaConfig": "./karma.conf.js",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
+            "polyfills": "src/client/polyfills.ts",
+            "tsConfig": "src/client/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "src/styles.css"
+              "src/client/styles.scss"
             ],
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets",
+                "input": "src/client/assets",
                 "output": "/assets"
               },
               {
                 "glob": "favicon.ico",
-                "input": "src",
+                "input": "src/client",
                 "output": "/"
               }
             ]
@@ -98,7 +98,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {            
             "tsConfig": [
-              "src/tsconfig.app.json"
+              "src/client/tsconfig.app.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -109,8 +109,8 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/server",
-            "main": "src/main.server.ts",
-            "tsConfig": "src/tsconfig.server.json"
+            "main": "src/client/main.server.ts",
+            "tsConfig": "src/client/tsconfig.server.json"
           },
           "configurations": {
             "production": {
@@ -157,10 +157,10 @@
     },
     "@schematics/angular:component": {
       "spec": false,
-      "inlineStyle": true,
-      "inlineTemplate": true,
-      "prefix": "app",
-      "styleext": "css"
+      "inlineStyle": false,
+      "inlineTemplate": false,
+      "prefix": ["adm", "pub"],
+      "styleext": "scss"
     },
     "@schematics/angular:directive": {
       "spec": false,
