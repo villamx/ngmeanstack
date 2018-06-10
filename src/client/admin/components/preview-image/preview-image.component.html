@@ -1,0 +1,2 @@
+<input type="file" accept=".png,.jpg,.jpeg" #file (change)='onSelect($event)' [ngStyle]='{"display": "none"}'>
+<img mat-card-image [src]='image.metadata||"/assets/placeholders/meetup.png"' (click)='file.click()' alt="">

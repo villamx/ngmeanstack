@@ -28,7 +28,7 @@
               }
             ],
             "styles": [
-              "src/client/styles.css"
+              "src/client/styles.scss"
             ],
             "scripts": []
           },

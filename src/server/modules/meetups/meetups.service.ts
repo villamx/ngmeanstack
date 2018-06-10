@@ -7,6 +7,7 @@ import { CreateMeetupDto } from './dto/meetup.dto';
 
 @Injectable()
 export class MeetupsService {
+
   constructor(@InjectModel('Meetup') private readonly  meetupModel: Model<Meetup>) {
   }
 
@@ -14,7 +15,7 @@ export class MeetupsService {
 
     const createdMeetup = new this.meetupModel(createMeetupDto);
     console.log('MeetupsService create ->', CreateMeetupDto, createdMeetup);
-    return await createdMeetup.save();
+    return await createdMeetup.save({setDefaultsOnInsert: true});
   }
 
   async findAll(): Promise<Meetup[]> {

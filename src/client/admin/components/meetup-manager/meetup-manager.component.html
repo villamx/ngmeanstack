@@ -1,0 +1,46 @@
+<mat-card fxLayout='column' class="">
+
+
+  <mat-form-field [floatLabel]='"never"' class="">
+    <input matInput type="text" placeholder="Meetup Name" [(ngModel)]='meetup.name'/>
+    <button mat-button *ngIf='meetup.name' matSuffix mat-icon-button aria-label="Clear" (click)='meetup.name=""'>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+
+  <mat-form-field [floatLabel]='"never"' class="">
+    <input matInput type="text" placeholder="Author Name" [(ngModel)]='meetup.author'/>
+    <button mat-button *ngIf='meetup.author' matSuffix mat-icon-button aria-label="Clear" (click)='meetup.author=""'>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+
+  <label class="">Image orientation:</label>
+  <mat-radio-group [(ngModel)]='meetup.orientation'>
+    <mat-radio-button class="example-margin" value="L">Landscape</mat-radio-button>
+    <mat-radio-button class="example-margin" value="P">Portrait</mat-radio-button>
+  </mat-radio-group>
+
+
+  <adm-preview-image (loadedImage)='onLoadedImage($event)'></adm-preview-image>
+
+
+  <mat-form-field [floatLabel]='"never"'>
+    <textarea matInput placeholder="Meetup description" maxlength="280" #desc [(ngModel)]='meetup.description'
+              matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="6"></textarea>
+    <mat-hint align='end'>{{desc.value.length}} / 280</mat-hint>
+    <button mat-button *ngIf='meetup.description' matSuffix mat-icon-button aria-label="Clear"
+            (click)='meetup.description=""'>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-card-actions>
+    <div fxLayout="row" fxLayoutAlign="space-evenly none">
+      <button mat-button>Cancel</button>
+      <button mat-button color='primary' (click)='addMeetup()'>Save</button>
+    </div>
+  </mat-card-actions>
+</mat-card>

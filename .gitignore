@@ -27,3 +27,4 @@ webpack.records.json
 *.ngsummary.json
 *.metadata.json
 *.shim.ngstyle.ts
+/nbproject/private/
